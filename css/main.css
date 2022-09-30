@@ -1,3 +1,48 @@
-body{
-    background-image: url("/images/backgroundimagemain.afdesign");
+html, body{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+
+    font-family: 'Poppins', sans-serif;
+    color: antiquewhite;
+
+}
+/* Styling for background image */
+.bg-image{
+    background-image: url("/images/backgroundimagemain.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    border: 5px solid red;
+    box-sizing: border-box;
+}
+
+/* Typography */
+
+
+
+/* NAVBAR */
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+ul{
+    display: flex;
+   
+}
+
+li{
+    margin-right: 10px;
+    list-style: none;
+    
+}
+
+.title{
+    
 }
