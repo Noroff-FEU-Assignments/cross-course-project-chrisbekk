@@ -9,81 +9,21 @@
     <h2>Web Security</h2>
     <p id="web-security-question">How would you advise a potential client to secure his/her website from web security attacks? Note: the word count for your answer should not be greater than 250 words</p>
     <p id="web-security-answer">
-        <h3>Sanitization of Data</h3>
-        <p>This practice involves ensuring that the data a system accepts is in the right format. This can be done manually or by using a well-known third-party solution. For example, in NodeJS, you have the sanitize-html package for sanitzing HTML code, and it is downloaded over a million times per week. There is aslo an ORM(Object Related Mapping) library for sanitizing the SQL related code.</p>
+    I would emphasize four principles of web security for the client to focus on.
+    
+    <ol>
+        <li>Secure Authorization and Authentication</li>
+        <p>This involves using strong login passwords for their users, but also the use of authentication technology; this is best achieved through the adoption of a third-party provider, such as OneLogin.</p>
 
-        <h3>Secure Authorization and Authentication</h3>
-        <p>This involves ensuring that authorization and authentication are hard to crack. This can be done manually but can be best achieved by using an open-standard authorization protocol or framework such as OneLogin, Okta, etc</p>
+        <li>Network Security</li>
+        <p>Ensuring that the client’s local network is secure and avoids single points of failure. The network should be designed and installed by a network engineer. If the client adopts a third-party hosting platform, security should be emphasized in choosing a provider.</p>
 
-        <h3>Make Use of a Well-known Third-party application</h3>
-        <p>This involves ensuring that a third-party application is trusted and tested. One might need to carry out some research about the aapplication before it can be used. An easier way to do that is to check how may downloads the application gets per week</p>
+        <li>Encryption of user data</li>
+        <p>Treat all data between the website and web browsers as a potential security threat. Use HTML and SQL sanitization libraries in order to ensure that the data only includes tags that are regarded as safe. Additionally, the web server should be configured to use HTTPS and HSTS protocols. This ensures that the data sent between client and server is encrypted, and that cookies, POST requests and header information are not easily available to attackers. </p>
 
-        <h3>Continous Deployment/Continous Integration (CI/CD)</h3>
-        <p>Continous Deployment/Continous Integration is an automatic process of integrating and delivering code to production. Usually, CI/CD runs every change against some security checks and decides the delivery of the change to productions. Any change that does not pass the checks would be rejected and flagged for rework. It basically catches oversights from developers and helps maintain the reliability of the changes coming to a codebase. There are different CI/CD tools that teams across the globe integrate into their pipeline. They include Github Action, Jenkins, Travis CI, Circle CI, etc</p>
-
-        <h3>Network Security</h3>
-        <p>A network is the connection of nodes via wired or wireless means in order to share data across nodes. Network security is the act of protecting the exhange of packets of data across the network. A network engineer is the one responsible for network security. However, a front-end developer must be wary of what network to connect to as well as where to host the website. Data could be compromised via the hosting platform</p>
-
-        <h3>Implementation of automatic user timeout</h3>
-        <p>This involves protecting users who have left their credentials hanging in the browser for a long time. In most cases, this would be done by the backend team by setting a session for expiration of the user credentials. However, as a front-end developer, you have to ensure that the API you are consuming has put this into consideration</p>
-
-        <h3>From mdn web docs</h3>
-
-        <p>Use more effective password management. Encourage strong passwords. Consider two-factor authentication for your site, so that in addition to a password the user must enter another code (usually one that is delivered via some physical hardware taht only the user will have, such as code in an SMS sent to their phone</p>
-
-        <p>Configure your web server to use HTTPS and HTTP Strict Transport Security (HSTS). HTTPS encrypts data sent between your client and server. This ensures that login credentials, cookises, POST requests data and header information are not easily available to attackers</p>
-
-        <p>Keep track of the most popular threats (the current OWASP list is here) and adress the most common vulnerabilities first.</p>
-
-        <p>Use vulnerability scanning tools to perform automated security testing on your site. Later on, your very succesful website may also find bugs by offering a bug bounty like Mozilla does here.</p>
-
-        <p>Only store and display data that you need. For example, if your users must store sensitive information like cred card details, only display enough of the card number that it can be identified by the user, and not enout that it can be copied by an attacker and used on another site. The most common pattern at this time is to only display the last 4 digits of a credit card number.</p>
-
-        <h3>7 Web Application Security Best Practices</h3>
-        <a href="https://www.acunetix.com/blog/web-security-zone/7-web-application-security-best-practices/">Acunetix</a>
-
-        <ol>
-            <li>Include everyone in security Practices
-                <p>Some businesses still believe that security should only be the concern of a specialized team. In the current business environment, such an approach is not viable</p>
-                <p>The current best practice for building secure software is called SECDEVOPS. This approach, which goes further than DEVSECOPS, assumes that every person involved in web application development (and any other application development) is in some way responsible for security. Developers know how to write secure code. QA engineers know how to apply security policies to their tests. All the management and executives have security in mind when making key decisions.</p>
-                <p>An effective secure DEVOPS approach requires a lot of education. Everyone must be aware of the security threats and risks, understand potential application vulnerabilities and feel responsible for security. While this requires a lot of time and effort, the investment pays off with top-notch secure applications</p>
-            </li>
-
-            <li>Adopt a cybersecurity framework
-                <p>Cybersecurity is very complex requires a well-organized approach. It´s easy to forget about certain aspects and just as easy to fall into chaos. That is why many organizations base their security strategy on a selected cybersecurity framework</p>
-                <p>A cybersecurity framework is a strategic approach that begins with detailed research on security risks and include activities such as developing a cyber incident response plan along with suitable application security checklists. The bigger the organization, the more such a strategic approach is needed.</p>
-                <p>Another advantage of adopting a cybersecurity framework is the realizaiton that all cybersecurity is interconnected and web security cannot be treated as a separate problem</p>
-            </li>
-
-            <li>Automate and integrate security tools
-                <p>In the past, security teams performed appliation security testing manually using dedicated security solutions. For example, a security researcher would first use a simple vulnerability scanner and then manually perform additional penetration testing using open-source tools. However, in the current security landscape, such an approach is not optimal. Just like in whole IT industry, the most efficient IT security processes are based on automation and integration</p>
-                <p>Many security tools are now developed with such automation and integration in mind. For example, business-grade vulnerability scanners are intended to be integrated with other systems such as CI/CD platforms and issue trackers. There are several advantages to such an approach</p>
-            </li>
-
-            <li>Follow secure software development practices 
-                <p>There are two key aspects to secure software development: practices that help you make fewer errors when writing application code, and practices that help you detect and eliminate errors earlier</p>
-
-                <p>In the first case, software developers must be eduacted about potential security problems. They must understand SQL injections, cross-site scripting(XSS), cross-site resource forgery(CSRF), and more vulnerabilities and misconfiguration such as the ones listed in the OWASP Top 10. They must also know security standards, secure coding techniques, algorithms, mechanisms, and tools required to build secure web applications. For example, they must know how to prevent SQL injections</p>
-
-                <p>In the second case, what helps most is scanning for security vulnerabilities as early as possible in the development lifecycle. If you integrate security tools into your DEVOPS pipelines, as soon as the developer commits new or updated functionality, they are informed about any vulnerabilities in it. Because this is done immediately, it also makes such vulnerabilities much easier to fix because the developer still remembers the code that they were working on. It also guarantees that the developer can correct their own code, and not waste time trying to understand code written by someone else a long time ago.</p>
-            </li>
-
-            <li>Use diverse security measures
-                <p>There are many aspects of web security and no single tool can be perceived as the only measure that will guarantee complete safety. The key tool for web application security is the vulnerability scanner. However, even the best vulnerability scanner will not be able to discover all vulnerabilities and security misconfigurationin your web applications and APIs/web services such as logical errors or bypass complex access control/authentication schemes without human intervention</p>
-                <p>Vulnerability scanning must not be treated as a replacement for penetration testing. Also, to fully secure web servers, vulnerability scanning must be combined with network scanning. Luckily, some vulnerability scanners are integrated with network security scanners, so the two activities may be handled together.</p>
-            </li>
-
-            <li>Perform security exercises
-                <p>One of the best ways to check if your sensitive information is safe is to perform mock attacks. This is the key assumption behind penetration testing but penetration tests are just spot-checks. To fully and contiuously evaluate your security stance, the best way is to perform contious security exerciss such as red team vs. blue team campaigns.</p>
-            </li>
-
-            <li>Maintain a bounty program
-                <p>Many top-notch security professionals prefer to work as freelancers instead of being hired by businesses either full-time or on a prohect basis. Losing out on such outstanding expertise is a huge waste. Your business can use such valuable resources by establishing a bounty program.</p>
-
-                <p> While some businesses may percieve a bounty program as a risky investment, it quickly pays off. It also increases the respect that your brand has in the hacking community and, consequently, the general brand perception. If you have a bounty program and treat white-hat hackers fairly, your brand is perceived as mature and proud of its security stance. You may strengthen such perception by publicly disclosing bounty program payoffs and responsibly sharing information about any security vulnerability discoveries and data breaches.</p>
-            </li>
-
-        </ol>
+        <li>Adopt a cybersecurity mindset</li>
+        <p>Your website represents a valuable asset for your business, but for the outside world it is also a representation of your brand. An attack on your site could lead to loss of business transactions, and it might also lead to the public not trusting your services or you as a business partner. Protecting the website from threats should therefore be a priority for everyone involved in the organization, and not only the cybersecurity team. </p>
+    </ol>
     </p>
   </body>
 </html>
